@@ -1,0 +1,6 @@
+<launch>
+
+	<node name="turtlesim" pkg="turtlesim" type="turtlesim_node" respawn="false" output="screen"/>
+	<node name="path_generator" pkg="assignment_2" type="turtle_path_generator.py" respawn="false" output="screen"/>
+
+</launch>

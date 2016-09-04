@@ -1,0 +1,10 @@
+catkin_create_pkg assignment_2 rospy geometry_msgs
+cd assignment_2
+vim src/turtle_path_generator.py
+chmod +x src/turtle_path_generator.py
+catkin_make
+source devel/setup.bash
+cd assignment_2
+mkdir launch
+vim launch/turtle_path.launch
+roslaunch assignment_2 turtle_path.launch
