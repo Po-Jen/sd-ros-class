@@ -1,0 +1,7 @@
+sudo apt-get install ros-indigo-turtlebot-stage
+export TURTLEBOT_STAGE_MAP_FILE=/opt/ros/indigo/share/turtlebot_stage/maps/maze.yaml
+export TURTLEBOT_STAGE_WORLD_FILE=/opt/ros/indigo/share/turtlebot_stage/maps/stage/maze.world
+roslaunch turtlebot_stage turtlebot_in_stage.launch
+
+catkin_create_pkg assignment_3 rospy geometry_msgs sensor_msgs move_base_msgs
+vim src/random_walker.py
