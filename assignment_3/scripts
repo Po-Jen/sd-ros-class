@@ -1,9 +1,19 @@
+# Install TurtleBot Simulator
 sudo apt-get install ros-indigo-turtlebot-stage
 export TURTLEBOT_STAGE_MAP_FILE=/opt/ros/indigo/share/turtlebot_stage/maps/maze.yaml
 export TURTLEBOT_STAGE_WORLD_FILE=/opt/ros/indigo/share/turtlebot_stage/maps/stage/maze.world
 roslaunch turtlebot_stage turtlebot_in_stage.launch
 
+# Basic random walker
 catkin_create_pkg assignment_3 rospy geometry_msgs sensor_msgs move_base_msgs
 vim src/random_walker.py
 chmod +x src/random_walker.py
 catkin_make
+
+# Create a package to control simulator and mimic a Roomba and use SLAM to generate a map
+mkdir launch
+vim launch/random_walker_and_gmapping.launch
+vim launch/my_turtlebot_in_stage.launch
+roslaunch assignment_3 random_walker_and_gmapping.launch
+
+# Create your own Stage map based on classroom
