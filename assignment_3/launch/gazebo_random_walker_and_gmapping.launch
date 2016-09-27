@@ -1,0 +1,10 @@
+<launch>
+
+	<include file="$(find assignment_3)/launch/my_turtlebot_in_gazebo.launch"/>
+
+	<node name="sky_walker" pkg="assignment_3" type="random_walker.py" respawn="false" output="screen"/>
+
+	<node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" respawn="false" output="screen"/>
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find assignment_3)/rviz/robot_navigation.rviz"/>
+</launch>
