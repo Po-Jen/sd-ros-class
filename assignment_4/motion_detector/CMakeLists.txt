@@ -1,16 +1,15 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(assignment_4)
+project(motion_detector)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  cv_bridge
-  geometry_msgs
-  image_transport
+  roscpp
   rospy
-  tf
-  visualization_msgs
+  sensor_msgs
+  usb_cam
+  message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -54,11 +53,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+add_service_files(
+  FILES
+  Mode.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -70,8 +68,12 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   geometry_msgs#   visualization_msgs
+#   sensor_msgs
 # )
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -104,8 +106,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES assignment_4
-#  CATKIN_DEPENDS cv_bridge geometry_msgs image_transport rospy tf visualization_msgs
+#  LIBRARIES motion_detector
+#  CATKIN_DEPENDS roscpp rospy sensor_msgs usb_cam
 #  DEPENDS system_lib
 )
 
@@ -121,24 +123,24 @@ include_directories(
 )
 
 ## Declare a C++ library
-# add_library(assignment_4
-#   src/${PROJECT_NAME}/assignment_4.cpp
+# add_library(motion_detector
+#   src/${PROJECT_NAME}/motion_detector.cpp
 # )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(assignment_4 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(motion_detector ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
-# add_executable(assignment_4_node src/assignment_4_node.cpp)
+# add_executable(motion_detector_node src/motion_detector_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(assignment_4_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(motion_detector_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(assignment_4_node
+# target_link_libraries(motion_detector_node
 #   ${catkin_LIBRARIES}
 # )
 
@@ -157,7 +159,7 @@ include_directories(
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS assignment_4 assignment_4_node
+# install(TARGETS motion_detector motion_detector_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -182,7 +184,7 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_assignment_4.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_motion_detector.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

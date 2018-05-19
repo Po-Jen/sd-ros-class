@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <package>
-  <name>assignment_4</name>
+  <name>motion_detector</name>
   <version>0.0.0</version>
-  <description>The assignment_4 package</description>
+  <description>The motion_detector package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
   <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="ros@todo.todo">ros</maintainer>
+  <maintainer email="barngrov@todo.todo">barngrov</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
@@ -19,7 +19,7 @@
   <!-- Url tags are optional, but mutiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/assignment_4</url> -->
+  <!-- <url type="website">http://wiki.ros.org/motion_detector</url> -->
 
 
   <!-- Author tags are optional, mutiple are allowed, one per tag -->
@@ -39,19 +39,18 @@
   <!--   <run_depend>message_runtime</run_depend> -->
   <!-- Use test_depend for packages you need only for testing: -->
   <!--   <test_depend>gtest</test_depend> -->
+  <build_depend>message_generation</build_depend>
+  <run_depend>message_runtime</run_depend>
+  
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>cv_bridge</build_depend>
-  <build_depend>geometry_msgs</build_depend>
-  <build_depend>image_transport</build_depend>
+  <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
-  <build_depend>tf</build_depend>
-  <build_depend>visualization_msgs</build_depend>
-  <run_depend>cv_bridge</run_depend>
-  <run_depend>geometry_msgs</run_depend>
-  <run_depend>image_transport</run_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>usb_cam</build_depend>
+  <run_depend>roscpp</run_depend>
   <run_depend>rospy</run_depend>
-  <run_depend>tf</run_depend>
-  <run_depend>visualization_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>usb_cam</run_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->

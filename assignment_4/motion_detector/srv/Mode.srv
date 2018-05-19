@@ -1,0 +1,5 @@
+#request fields
+string mode
+---
+#response constants
+string error
